@@ -5,7 +5,7 @@ const routes = new Router
 
 /* Products */
 routes.get('/products', ProductController.index)
+routes.get('/products/:code', ProductController.find)
 routes.post('/products', ProductController.store)
-routes.delete('/products/:id', ProductController.destroy)
 
 module.exports = routes

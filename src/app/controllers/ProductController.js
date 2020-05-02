@@ -12,14 +12,9 @@ class ProductController {
         return res.json(product)
     }
 
-    async destroy(req, res) {
-        const product = await Product.findById(req.params.id)
-        
-        if(!product)
-            return res.json({error: `Cannot find product with id ${req.params.id}`})
-
-        await product.remove()
-        return res.json({message: 'Product deleted with success'})
+    async find(req, res) {
+        const product = await Product.find({barCode: req.params.code})
+        return res.json(product)
     }
 }
 
